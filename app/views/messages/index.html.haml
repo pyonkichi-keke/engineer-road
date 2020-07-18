@@ -1,0 +1,39 @@
+.body
+  .flash
+    = render 'layouts/flash'
+  .message__header
+    .message__header__logo 
+      = @group.name
+    .message__header__right
+      = link_to groups_path, class: "message__header__right__home" do
+        = fa_icon 'home', class: "message__header__right__home__icon"
+      = link_to new_group_message_path(params[:group_id]), class: "message__header__right__new" do
+        = fa_icon 'pencil', class: "pencil" 
+    
+
+  .main
+    .main__messages
+      - @messages.each do |message|
+        .main__messages__list
+          .main__messages__list__title
+            = link_to group_message_path(message.group_id,message.id,comment_id: message.id),class: "main__messages__list__title" do
+              = message.title
+            .main__messages__list__title__option
+              = message.user.name
+              %br
+              = message.created_at.to_s(:yeardate)
+          .main__messages__list__img    
+            = image_tag message.image.url, class: 'main__messages__list__img' if message.image.present?
+          .main__messages__list__content
+            = message.content
+
+    .main__link
+      .google
+        = link_to "https://www.google.com/?hl=ja" do
+          = fa_icon 'google', class: "google-icon"
+      .youtube
+        = link_to "https://www.youtube.com/?gl=JP" do
+          = fa_icon 'youtube', class: "youtube-icon"
+
+
+    

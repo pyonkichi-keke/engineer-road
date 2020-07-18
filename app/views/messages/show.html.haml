@@ -1,0 +1,57 @@
+.body
+  .flash
+    = render 'layouts/flash'
+  .show__messages__header
+    .show__messages__header__return
+      = link_to  group_messages_path(@group.id), class: "show__messages__header__return" do
+        = fa_icon 'undo'
+    .show__messages__header__title
+      = @message.title
+    .show__messages__header__link
+      - if @favorite.present?
+        = link_to group_message_favorite_path(@group.id, @message.id), class: "show__messages__header__link__favo", method: :delete do
+          = fa_icon 'heart', class: "show__messages__header__link__favo__icon"
+      - else
+        = link_to new_group_message_favorite_path(@group.id, @message.id), class: "show__messages__header__link__nofavo" do
+          = fa_icon 'heart', class: "show__messages__header__link__nofavo__icon"
+
+      = link_to new_group_message_comment_path(@group.id, @message.id), class: "show__messages__header__link__icon" do
+        = fa_icon 'comments', class: "show__messages__header__link__icon"
+
+  .main
+    .show__messages
+      .show__messages__user
+        = @user.name
+        = @message.created_at.to_s(:datetime)
+        - if current_user.id == @message.user.id
+          = link_to edit_group_message_path(@group.id, @message.id) ,class: ".show__messages__user__edit" do
+            = fa_icon 'edit',class: ".show__messages__edit"
+      .show__messages__img    
+        = image_tag @message.image.url, class: 'main__messages__list__img' if @message.image.present?
+      .show__messages__content
+        = @message.content
+      .show__messages__favo
+        = fa_icon 'heart', class: "show__messages__favo__icon"
+        = @favorites.count
+    .comment__box
+      .comment__box__title
+        comment
+      - @comments.each do |comment|
+        .comment__box__list
+          .comment__box__list__left
+            .comment__box__list__left__name
+              = comment.user.name 
+            .comment__box__list__left__date      
+              = comment.created_at.to_s(:datetime)
+          .comment__box__list__comment
+            = comment.comment
+    .main__link
+      .google
+        = link_to "https://www.google.com/?hl=ja" do
+          = fa_icon 'google', class: "google-icon"
+      .youtube
+        = link_to "https://www.youtube.com/?gl=JP" do
+          = fa_icon 'youtube', class: "youtube-icon"
+
+
+  

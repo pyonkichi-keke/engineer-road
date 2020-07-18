@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title EngineerRoad
+    = csrf_meta_tags
+    = csp_meta_tag
+    %link{:href => "https://unpkg.com/ress@2.0.4/dist/ress.min.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css2?family=Bangers&family=Grenze+Gotisch&family=Sawarabi+Mincho&display=swap", :rel => "stylesheet"}/
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application'                                                     
+
+
+  %body
+    = yield
+                                                                               

@@ -1,0 +1,88 @@
+.message__header{
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  .message__header__logo{
+    color: white;
+    font-size: 90px;
+    font-family: 'Bangers', cursive;
+    border-bottom: solid 1px white;
+    padding-top: 10px;
+    height: 100%;
+    letter-spacing: 25px;
+  }
+  &__right{
+    &__home{
+      margin-top: 5px;
+      margin-right: 20px;
+      font-size: 60px;
+      text-decoration: none;
+      &__icon{
+        color: white;
+        &:hover{
+          color: red;
+        }
+        &:after{
+          font-size: 15px;
+          color: white;
+          content: "HOME";
+          font-family: 'Sawarabi Mincho', sans-serif;
+        }
+      }
+    }
+    &__new{
+      text-decoration: none;
+      color: white;
+      font-size: 80px;
+      padding: 15px 20px 0 0;
+    }
+  }
+}
+.main{
+  height: calc(100vh - 105px);
+  &__messages{
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: scroll;
+    font-family: 'Sawarabi Mincho', sans-serif;
+
+    &__list{
+      margin-top: 20px;
+      font-size: 30px;
+      color: white;
+      width: 70%;
+      background-color:  rgba($color: #888888, $alpha: 0.55);
+      border-radius: 25px;
+      &__title{
+        font-size: 30px;
+        color: white;
+        padding: 3px 0 0 10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &:hover a{
+          color: black;
+        }
+        &__option{
+          font-size: 12px;
+          letter-spacing: 3px;
+          position: absolute;
+          right: 50px;
+        }
+      }
+      &__content{
+        font-size: 20px;
+        padding: 0 30px 10px 30px;
+        color:white;
+      }
+      &__img{
+        text-align: center;
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
