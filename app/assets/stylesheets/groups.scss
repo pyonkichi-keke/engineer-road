@@ -1,5 +1,4 @@
 .body{
-  height: 100vh;
   width: 100vw;
   background-image: image-url("test2.jpg");
   background-attachment: fixed;
@@ -43,7 +42,6 @@
 
 .main{
   position: relative;
-  height: calc(100vh - 120px);
   &__list{
     height: 85%;
     display: flex;
