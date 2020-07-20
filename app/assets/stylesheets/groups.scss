@@ -1,4 +1,5 @@
 .body{
+  height: 100vh;
   width: 100vw;
   background-image: image-url("test2.jpg");
   background-attachment: fixed;
@@ -48,6 +49,7 @@
     align-items: center;
     flex-direction: column;
     overflow: scroll;
+    overflow-x: hidden;
     &__block{
       color: white;
       width: 70%;
