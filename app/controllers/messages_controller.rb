@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create!(message_params)
+    @message = Message.create(message_params)
     flash[:notice] = "投稿が完了しました"
     redirect_to group_messages_path(params[:group_id])
   end
