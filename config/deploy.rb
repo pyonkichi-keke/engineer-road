@@ -33,4 +33,3 @@ namespace :deploy do
   end
 end
 
-set :bundle_gemfile,  "server/Gemfile"
