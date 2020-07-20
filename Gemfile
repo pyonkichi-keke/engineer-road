@@ -68,6 +68,7 @@ gem 'devise'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'fog-aws'
 
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
