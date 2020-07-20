@@ -1,9 +1,8 @@
 class FavoritesController < ApplicationController
   before_action :move_to_index 
   
-  def new
-    @favorite = Favorite.new(user_id: current_user.id, message_id: params[:message_id])
-    @favorite.save
+  def create
+    @favorite = Favorite.create(user_id: current_user.id, message_id: params[:message_id])
     redirect_to  group_message_path(params[:group_id],params[:message_id])
   end
 
@@ -12,6 +11,8 @@ class FavoritesController < ApplicationController
     @favorite.destroy
     redirect_to  group_message_path(params[:group_id],params[:message_id])
   end
+
+ 
 
   private
   def move_to_index
