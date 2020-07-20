@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "groups#index"
   resources :groups do
     resources :messages do
-      resources :favorites
+      resources :favorites, only: [:create, :destroy]
       resources :comments 
     end
   end
