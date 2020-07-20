@@ -9,10 +9,10 @@
       = @message.title
     .show__messages__header__link
       - if @favorite.present?
-        = link_to group_message_favorite_path(@group.id, @message.id), class: "show__messages__header__link__favo", method: :delete do
+        = link_to group_message_favorite_path(@group.id, @message.id, @favorite.id), method: :delete, class: "show__messages__header__link__favo" do
           = fa_icon 'heart', class: "show__messages__header__link__favo__icon"
       - else
-        = link_to new_group_message_favorite_path(@group.id, @message.id), class: "show__messages__header__link__nofavo" do
+        = link_to group_message_favorites_path(@group.id, @message.id), class: "show__messages__header__link__nofavo", method: :post do
           = fa_icon 'heart', class: "show__messages__header__link__nofavo__icon"
 
       = link_to new_group_message_comment_path(@group.id, @message.id), class: "show__messages__header__link__icon" do
