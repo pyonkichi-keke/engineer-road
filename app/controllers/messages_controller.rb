@@ -32,7 +32,8 @@ class MessagesController < ApplicationController
   end
 
   def update
-    Message.update(message_params)
+    @message = Message.find(params[:group_id], params[:id])
+    @message.update(message_params)
     redirect_to group_message_path(params[:group_id],params[:id])
   end
 
