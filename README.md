@@ -28,7 +28,7 @@ Engineer-Road
 <br />
 トップ画面から各グループをクリックすると該当のグループに投稿された記事の一覧が表示されます。
 <br />
-[![Image from Gyazo](https://i.gyazo.com/ab3888df495c020e3112cbcc41e4f175.gif)](https://gyazo.com/ab3888df495c020e3112cbcc41e4f175)
+[![Image from Gyazo](https://i.gyazo.com/cf623383c6e2818e16b8e52334b2c970.gif)](https://gyazo.com/cf623383c6e2818e16b8e52334b2c970)
 <br />
 各記事をクリックすると詳細画面に移動し、コメントやいいねを投稿することが可能です。
 <br />
