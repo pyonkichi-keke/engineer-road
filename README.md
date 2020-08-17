@@ -20,13 +20,6 @@ Engineer-Road
 他のユーザーの記事をクリックすると、コメントやいいねを投稿することができます。
 自分の投稿記事をクリックすると、記事の編集・削除が可能です。
 トップページの上部の検索ボタンから知りたい情報のキーワードを検索すると、キーワードに沿った内容の記事が検索できます。
-## テスト用アカウント
-email: aaa@gmail.com
-<br />
-password: aaaaaaa
-
-# 本番環境
-完成次第記載
 
 # DEMO
 完成次第記載
@@ -44,4 +37,37 @@ Javascriptを使って、より動きのあるアプリにしたい。
 現在、画像を記事の一番上にしか記載することができないため、好きなところに画像を貼れるようにしたい。
 
 # DB設計
-完成次第記載
+## Usersテーブル
+  |Column|Type|Options|
+  |------|----|-------|
+  |name|string|null: false|
+  |email|string|null: false|
+  |password|string|null: false|
+
+## Gropusテーブル
+  |Column|Type|Options|
+  |------|----|-------|
+  |name|string|null: false|
+
+## Messagesテーブル
+  |Column|Type|Options|
+  |------|----|-------|
+  |content|text|null: false|
+  |title|string|null: false|
+  |group_id|references|foreign_key: true|
+  |user_id|references|foreign_key: true|
+
+## Commentsテーブル
+  |Column|Type|Options|
+  |------|----|-------|
+  |comment|text|null: false|
+  |message_id|references|foreign_key: true|
+  |user_id|references|foreign_key: true|
+  
+## Favoritesテーブル
+  |Column|Type|Options|
+  |------|----|-------|
+  |message_id|references|foreign_key: true|
+  |user_id|references|foreign_key: true|
+    
+  
