@@ -28,12 +28,11 @@ Engineer-Road
 <br />
 トップ画面からグループをクリックすると該当のグループに投稿された記事の一覧が表示されます。
 <br />
-<img width="1440" alt="スクリーンショット 2020-08-17 15 20 50" src="https://user-images.githubusercontent.com/66993984/90364055-b4bd9780-e09e-11ea-82ac-84a9f32f2099.png">
+[![Image from Gyazo](https://i.gyazo.com/ab3888df495c020e3112cbcc41e4f175.gif)](https://gyazo.com/ab3888df495c020e3112cbcc41e4f175)
 <br />
 各記事をクリックすると詳細画面に移動し、コメントやいいねを投稿することが可能です。
 <br />
-<img width="1440" alt="スクリーンショット 2020-08-17 15 20 36" src="https://user-images.githubusercontent.com/66993984/90364059-b6875b00-e09e-11ea-98d8-40990c1a95e9.png">
-
+[![Image from Gyazo](https://i.gyazo.com/0cc71e82087b156b1d06773ad9124ced.gif)](https://gyazo.com/0cc71e82087b156b1d06773ad9124ced)
 
 # 工夫したポイント
 プログラミングの学習において、自分のメモ帳を見返しながら学習をしていたが、知りたい情報がどこに書いているのか探すのに時間がかかる場面が多々ありました。
