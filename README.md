@@ -55,7 +55,7 @@ Javascriptを使って、より動きのあるアプリにしたい。
   |email|string|null: false|
   |password|string|null: false|
 
-## Gropusテーブル
+## Groupsテーブル
   |Column|Type|Options|
   |------|----|-------|
   |name|string|null: false|
