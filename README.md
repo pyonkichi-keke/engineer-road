@@ -26,7 +26,7 @@ Engineer-Road
 <br />
 <img width="1440" alt="スクリーンショット 2020-08-17 15 21 00" src="https://user-images.githubusercontent.com/66993984/90364046-aec7b680-e09e-11ea-8e05-5a59d818a5a5.png">
 <br />
-トップ画面からグループをクリックすると該当のグループに投稿された記事の一覧が表示されます。
+トップ画面から各グループをクリックすると該当のグループに投稿された記事の一覧が表示されます。
 <br />
 [![Image from Gyazo](https://i.gyazo.com/ab3888df495c020e3112cbcc41e4f175.gif)](https://gyazo.com/ab3888df495c020e3112cbcc41e4f175)
 <br />
