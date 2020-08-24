@@ -1,0 +1,10 @@
+- if user_signed_in? && message.favorites.find_by(user_id: current_user.id)
+  = link_to group_message_favorite_path(@group.id, message.id, id: [message_id: message.id, user_id: current_user.id]), method: :delete, remote: :true, class: "message_main_list_contact_favorite_destroy" do
+    = fa_icon 'heart', class: "message_main_list_contact_favorite_destroy_icon"
+    %span
+      = message.favorites.count
+- else
+  = link_to group_message_favorites_path(@group.id, message.id), class: "message_main_list_contact_favorite_create", method: :post, remote: true do
+    = fa_icon 'heart-o', class: "message_main_list_contact_favorite_create_icon"
+    %span
+      = message.favorites.count

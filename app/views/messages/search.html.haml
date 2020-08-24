@@ -22,54 +22,44 @@
         .message_main_search_form_submit
           = image_tag "/icon-search 1.png", class: "message_main_search_form_submit message_main_search_form_submit_icon"
         = f.submit id: "search", class: "hidden"
-    -if user_signed_in?
-      .message_main_search_right
-        .message_main_search_right_user
-          -if current_user.image.present?
-            = image_tag current_user.image.url, class: "top_main_right_user_icon"
-          - else
-            .nouser_icon
-              = fa_icon('user')
-        .message_main_search_right_user_title
-          ユーザー名
-        .message_main_search_right_user_name
-          = current_user.name
-  
+
   .message_main_lists
     - @messages.each do |message|
       .message_main_list
         .message_main_list_title
           .message_main_list_title_icon
-            - if message.user.image.present?
-              = image_tag message.user.image.url, class: "message_main_list_title_icon"
-            - else
-              .nouser_icon_message
-                = fa_icon 'user'
+            = image_tag message.user.image.url, class: "message_main_list_title_icon"
 
           .message_main_list_title_time
             = message.created_at.to_s(:yeardate)
-            %br/
             投稿
 
           .message_main_list_title_name
             = message.title
 
           .message_main_list_title_edit
-            - if user_signed_in? && message.user_id == current_user.id
+            - if message.user_id == current_user.id
               = link_to edit_group_message_path(@group,message.id), class: "message_main_list_title_edit_icon" do
                 = fa_icon 'edit'
-
-        -if message.image.present?    
-          .message_main_list_img    
-            = image_tag message.image.url, class: 'message_main_list_img' if message.image.present?
+            
+        .message_main_list_img    
+          = image_tag message.image.url, class: 'message_main_list_img' if message.image.present?
 
         .message_main_list_content
           = message.content
         
         .message_main_list_contact
           .message_main_list_contact_favorite
-            = render partial: "favorite", locals: { message: message }
-
+            - if message.favorites.find_by(user_id: current_user.id)
+              = link_to group_message_favorite_path(@group.id, message.id, message.favorites.ids), method: :delete, class: "message_main_list_contact_favorite_destroy" do
+                = fa_icon 'far heart', class: "message_main_list_contact_favorite_destroy_icon"
+                %span
+                  = message.favorites.count
+            - else
+              = link_to group_message_favorites_path(@group.id, message.id), class: "message_main_list_contact_favorite_create", method: :post do
+                = fa_icon 'fas heart', class: "message_main_list_contact_favorite_create_icon"
+                %span
+                  = message.favorites.count
           .message_main_list_contact_comment
             = fa_icon 'comment'
             %span
@@ -80,20 +70,20 @@
             - message.comments.each do |comment|
               .message_main_list_comment_area_content
                 .message_main_list_comment_area_content_img
-                  - if comment.user.image.present?
-                    = image_tag comment.user.image.url, class: "message_main_list_comment_area_content_img"
-                  - else
-                    .nouser_icon_comment
-                      = fa_icon 'user'
+                  = image_tag comment.user.image.url, class: "message_main_list_comment_area_content_img"
                 .message_main_list_comment_area_content_name
                   = comment.user.name
                 .message_main_list_comment_area_content_comment
                   = comment.comment
+
           .message_main_list_comment_form
-            = form_with model: @comment, url: group_message_comments_path(@group, message.id, @comment), method: :post, local: true, id: "new_comment", class:"message_main_list_comment_form" do |f|
+            = form_with model: @comment, url: group_message_comments_path(@group, message, @comment), method: :post, local: true, id: "new_comment", class:"message_main_list_comment_form" do |f|
               = f.text_field :comment, placeholder: "コメントする", class: "message_main_list_comment_form_text"
               %label(for="comment_send")
                 = f.submit id: "comment_send", class: "hidden"
                 = fa_icon 'paper-plane', class: "message_main_list_comment_form_submit"
+                 
+
+
 
     

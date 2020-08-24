@@ -1,0 +1,44 @@
+.form_header
+  .form_header_title
+    .form_header_title_return
+      = link_to  group_messages_path(@group.id) do
+        = fa_icon 'undo'
+    .form_header_title_name
+      = @group.name
+
+.form_main
+  .flash
+    = render 'layouts/flash'
+  = form_with model: [group, message], local: true do |f|   
+    .previews
+      - if message.persisted? && message.image.present?
+        = image_tag message.image.url, width: "350", height: '250', class: "message_img"
+    .image_box        
+      .file_field
+        画像選択
+        = f.file_field :image, class:"image"
+      .remove
+        %span
+          削除
+
+    .message_fields  
+      .message_field
+        = f.label :title, :タイトル
+        %br/
+        = f.text_field :title, placeholder: "タイトル", class:"form_text"
+
+      .message_field
+        = f.label :content, :記事本文
+        %br/
+        = f.text_area :content, placeholder: "本文を記入してください"
+      
+      .message_field_submit
+        - if message.persisted?
+          .message_field_submit_edit
+            = f.submit :更新
+          .message_field_submit_delete
+            = link_to group_message_path(@group,message.id), method: :delete, class: "message_field_delete" do
+              投稿を削除する
+        - else
+          .message_field_submit_new
+            = f.submit :投稿

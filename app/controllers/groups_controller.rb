@@ -5,19 +5,23 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
-  def new
-    @group = Group.new
-  end
-
   def create
     Group.create(group_params)
     redirect_to root_path
+    flash[:notice]= "グループを作成しました!"
+  end
+
+  def destroy
+    @group = Group.find_by(params[:id])
+    @group.destroy
+    redirect_to root_path
+    flash[:notice]= "グループを削除しました!"
   end
 
   private
 
   def group_params
-    params.require(:group).permit(:name)
+    params.permit(:name)
   end
 
   def move_to_index

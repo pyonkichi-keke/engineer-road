@@ -1,20 +1,19 @@
 .flash{
   height: 20px;
-  color: yellow;
-  font-size: 15px;
+  color: red;
+  font-size: 20px;
   margin: auto;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   text-align: center;
+  padding-top: 5px;
 }
 
 .notice{
-  border-bottom: solid 1px yellow;
   padding-bottom: 2px;
   font-family: 'Sawarabi Mincho', sans-serif;
 }
 
 .alert{
-  border-bottom: solid 1px yellow;
   padding-bottom: 2px;
   font-family: 'Sawarabi Mincho', sans-serif;
 }

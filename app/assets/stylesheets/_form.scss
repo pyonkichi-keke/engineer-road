@@ -1,0 +1,146 @@
+.form_header{
+  height: 100px;
+  &_title{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: 90px;
+    font-family: 'Bangers', cursive;
+    margin: 20px 0;
+    &_return{
+      font-size: 60px;
+      text-decoration: none;
+      position: absolute;
+      left: 100px;
+      top: 10px;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      &:hover{
+        text-shadow: 3px 3px 3px black;
+        -webkit-transition: 0.3s;
+	      -moz-transition: 0.3s;
+	      -o-transition: 0.3s;
+	      -ms-transition: 0.3s;
+	      transition: 0.3s;
+      }  
+    }
+    &_name{
+      letter-spacing: 25px;
+    }
+  }
+}
+.form_main{
+  width: 800px;
+  margin:  auto;
+  text-align: center;
+  background-color: rgb(252, 244, 235);
+}
+.form_content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+  width: 700px;
+  background-color: #f1efe9;
+}
+.message_fields{
+  width: 600px;
+  margin: auto;
+}
+
+.message_field{
+  margin: 40px 0;
+  font-size: 30px;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  letter-spacing: 5px;
+  &_submit{
+    padding-bottom: 30px;
+    &_new, &_edit{
+      width: 100px;
+      margin: auto;
+      background-color:  black;
+      border-radius: 5px;
+      color: white;
+      text-align: center;
+      font-size: 25px;
+      padding-top: 2px;
+      font-family: 'Sawarabi Mincho', sans-serif;
+    }
+    &_delete{
+      width: 250px;
+      margin: 30px auto;
+      background-color:  red;
+      border-radius: 5px;
+      font-size: 25px;
+      padding: 2px 0 0 13px;
+      font-family: 'Sawarabi Mincho', sans-serif;
+      a{
+        text-decoration: none;
+        color: white;
+        letter-spacing: 5px;
+      }
+    }
+  }
+}
+
+.previews{
+  text-align: center;
+  width: 75%;
+  margin: auto;
+}
+
+.hidden{
+  display: none;
+}
+
+.form_text{
+  height: 50px;
+  width: 550px;
+  background-color: rgb(235, 233, 233);
+  border: 1px solid #bdb4b4;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+textarea{
+  height: 300px;
+  width: 550px;
+  background-color: rgb(235, 233, 233);
+  border: 1px solid #bdb4b4;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.file_field{
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  letter-spacing: 5px;
+  margin-top: 20px;
+}
+
+.image{
+  margin: auto;
+  background-color: rgb(235, 233, 233);
+  width: 550px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #bdb4b4;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.remove{
+  text-align: end;
+  margin: 3px 128px 0 0 ;
+  span{
+    background-color: red;
+    color: white;
+    padding: 5px 5px 5px 7px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+}

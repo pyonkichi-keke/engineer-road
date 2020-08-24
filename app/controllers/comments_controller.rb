@@ -3,14 +3,9 @@ class CommentsController < ApplicationController
   
   def create
     @comment = Comment.create(comment_params)
-    flash[:notice] = "コメントを投稿しました"
-    redirect_to  group_message_path(params[:group_id], params[:message_id])
-  end
-
-  def new
-    @group = Group.find(params[:group_id])
-    @message = Message.find(params[:message_id])
-    @comment = Comment.new
+    respond_to do |format|
+      format.json
+    end
   end
 
   private
@@ -26,3 +21,5 @@ class CommentsController < ApplicationController
   end
 
 end
+
+

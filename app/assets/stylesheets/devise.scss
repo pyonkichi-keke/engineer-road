@@ -1,44 +1,98 @@
-.devise{
-  background-image: image-url("test2.jpg");
-  height: 100vh;
-  width: 100vw;
-  background-attachment: fixed;
-  background-size: cover;
-}
-.devise__title{
+.devise_title{
   text-align: center;
-  font-size: 80px;
-  font-family: 'Sawarabi Mincho', sans-serif;
-  color: white;
-  padding-top: 50px;
+  padding-top: 10px;
+  span{
+    font-size: 80px;
+    letter-spacing: 8px;
+    font-family: 'Grenze Gotisch', cursive;
+    border-bottom: 1px solid rgb(209, 209, 209);
+  }
 }
 
-.devise__form{
+.devise_form{
   text-align: center;
-  margin-top: 30px;
+  margin: 30px auto;
+  background-color: rgb(252, 244, 235);
+  width: 800px;
+  padding: 30px;
+  &_title{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Sawarabi Mincho', sans-serif;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+  }
 }
 
 .field{
   font-size: 20px;
   font-family: 'Sawarabi Mincho', sans-serif;
-  color: white;
+  margin-top: 15px;
 }
 
 .text{
-  background-color: rgba($color: #888888, $alpha: 0.75);
+  background-color: rgba($color: #888888, $alpha: 0.45);
   border-radius: 25px;
-  margin-bottom: 30px;
-  color: white;
-  font-size: 40px;
+  margin-top: 20px;
+  font-size: 30px;
+  padding: 0 20px;
 }
 
 .actions{
   font-family: 'Sawarabi Mincho', sans-serif;
-  color: black;
-  &__submit{
+  color: white;
+  margin: 35px 0 40px 0;
+  &_submit{
+    font-size: 30px;
+    letter-spacing: 5px;
     margin-top: 30px;
-    background-color: yellow;
+    background-color: rgb(38, 82, 226);
     border-radius: 25px;
     padding: 0 30px;
   }
 }
+
+.user_previews{
+  text-align: center;
+  width: 75%;
+  margin: auto;
+}
+
+.user_file_field{
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+
+.user_image{
+  margin: auto;
+  background-color: rgba($color: #888888, $alpha: 0.45);
+  width: 350px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #bdb4b4;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.user_remove{
+  text-align: end;
+  margin: 3px 200px 0 0 ;
+  span{
+    background-color: red;
+    color: white;
+    padding: 5px 5px 5px 7px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+}
+
+.user_img{
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+

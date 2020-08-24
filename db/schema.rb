@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_020130) do
+ActiveRecord::Schema.define(version: 2020_08_17_033633) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "comment", null: false
+    t.string "comment", null: false
     t.bigint "message_id"
     t.bigint "user_id"
     t.index ["message_id"], name: "index_comments_on_message_id"
@@ -40,28 +40,21 @@ ActiveRecord::Schema.define(version: 2020_07_15_020130) do
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "content"
-    t.text "image"
-    t.text "title"
+    t.string "title", null: false
+    t.string "content", null: false
+    t.string "image"
     t.bigint "group_id"
     t.bigint "user_id"
     t.index ["group_id"], name: "index_messages_on_group_id"
+    t.index ["title"], name: "index_messages_on_title"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "user_favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.bigint "favorite_id"
-    t.index ["favorite_id"], name: "index_user_favorites_on_favorite_id"
-    t.index ["user_id"], name: "index_user_favorites_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
+    t.string "image"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -77,6 +70,4 @@ ActiveRecord::Schema.define(version: 2020_07_15_020130) do
   add_foreign_key "favorites", "users"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
-  add_foreign_key "user_favorites", "favorites"
-  add_foreign_key "user_favorites", "users"
 end

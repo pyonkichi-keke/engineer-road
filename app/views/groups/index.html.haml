@@ -1,64 +1,91 @@
-.body
-  .flash
+.top
+  .top_header
+    .top_header_title
+      .top_header_title_new
+        .top_header_title_new_icon
+          = fa_icon 'graduation-cap'
+        .top_header_title_new_p
+          新規グループ作成
+      .top_header_title_name
+        Engineer Road
+      .top_header_title_right
+        - if user_signed_in?
+          .top_header_title_right_mypage
+            = link_to user_path(current_user.id), class: "top_header_title_right_mypage" do
+              マイページ
+          .top_header_title_right_logout
+            = link_to destroy_user_session_path, method: :delete, class: "top_header_title_right_logout" do
+              ログアウト
+        - else
+          .top_header_title_right_signup
+            = link_to  new_user_registration_path, class: "top_header_title_right_login" do
+              新規登録
+          .top_header_title_right_login
+            = link_to new_user_session_path, class: "top_header_title_right_login" do
+              ログイン
+    
+  .top_flash
     = render 'layouts/flash'
-  .header
-    .header__new__group
-      = link_to new_group_path, class: "header__new__group__icon" do
-        = fa_icon 'graduation-cap'
-    .header__logo
-      Engineer road
-      
-    .header-right  
-      - if user_signed_in?
-        .header__signed
-          .header__signed__left
-            .header__signed__title
-              Login user
-            .header__signed__name
-              = current_user.name
-          .header__logout
-            = link_to destroy_user_session_path, method: :delete, class: "header__logout__icon" do
-              = fa_icon 'sign-out'
-            Log out
-      - else
-        .header__signup
-          .header__signup__link
-            = link_to  new_user_registration_path do
-              = fa_icon 'user-plus', class: "header__signup__link"
-          .header__signup__name
-            新規登録
-
-        .header__signin
-          .header__signin__link
-            = link_to new_user_session_path do
-              = fa_icon 'sign-in', class: "header__signin__link"
-          .header__signin__name
-            ログイン
-        
-
-  .main
-    .main__list
+    .top_flash_new_group
+      = form_with url: groups_path, local: true, method: :post, class:"top_flash_new_group_form" do |f|
+        = f.text_field :name, placeholder: "グループ名を入力してください", class: "top_flash_new_group_form_text"
+        .top_flash_new_group_form_submit
+          = f.submit :new, id: "new_group"
+  .top_main
+    .top_main_lists
       - @groups.each do |group|
-        .main__list__block
-          .main__list__block__name
-            =link_to group_messages_path(group.id),class: "group" do
-              = group.name
-          .main__list__block__option
-            .main__list__block__option--number
-              投稿数: 
+        = link_to group_messages_path(group.id), calss: "top_main_list" do
+          .top_main_list.fuwafuwa
+            .top_main_list_count
+              投稿数
               = group.messages.count
-            .main__list__block--option--latest
-              最新更新日: 
+            .top_main_list_name
+              = group.name
+            .top_main_list_latest
+              %span
+                最新更新日
+              %br/
               = group.created_at.to_s(:datetime)
-          .main__list__block__new
-            = link_to new_group_message_path(group.id), class: "new" do
-              = fa_icon 'pencil', class: "pencil" 
+            = link_to group_path(group.id), method: :delete, data: { confirm: '削除しますか？' }, class: "top_main_list_delete" do
+              delete
 
-    .main__link
-      .google
-        = link_to "https://www.google.com/?hl=ja" do
-          = fa_icon 'google', class: "google-icon"
-      .youtube
-        = link_to "https://www.youtube.com/?gl=JP" do
-          = fa_icon 'youtube', class: "youtube-icon"
-
+    .top_main_right
+      -if user_signed_in?
+        .top_main_right_user
+          -if current_user.image.present?
+            = image_tag current_user.image.url, class: "top_main_right_user_icon"
+          - else
+            .nouser_icon
+              = fa_icon('user')
+        .top_main_right_user_title
+          ユーザー名
+        .top_main_right_user_name  
+          = current_user.name
+        .top_main_right_user_edit
+          = link_to edit_user_registration_path, class:"top_main_right_user_edit_button" do
+            edit
+            =fa_icon 'edit'
+      - else
+        .top_main_right_user
+          .nouser_icon
+            = fa_icon('user')
+        .top_main_right_user_title
+          ユーザー名
+        .top_main_right_user_name
+          ゲストユーザー
+       
+      .top_main_right_link
+        .top_main_right_link_google
+          %label 
+            = link_to "https://www.google.com/?hl=ja" do
+              = fa_icon 'google', class: "google-icon"
+              %span
+                googleで検索
+        
+        .top_main_right_link_youtube
+          %label
+            = link_to "https://www.youtube.com/?gl=JP" do
+              = fa_icon 'youtube', class: "youtube-icon"
+              %span
+                youtubeで検索
+      

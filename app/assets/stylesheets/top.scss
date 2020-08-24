@@ -1,0 +1,281 @@
+.top{
+  &_header{
+    border-bottom: 1px solid rgb(218, 218, 217);
+    height: 110px;
+    &_title{
+      display: flex;
+      justify-content: space-around;
+      &_new{
+        width: 120px;
+        height: 110px;
+        position: relative;
+        padding-top: 10px;
+        &_p{
+          font-size: 5px;
+          position: absolute;
+          bottom: 10px;
+          left: 30px;
+          font-family: 'Sawarabi Mincho', sans-serif;
+          color: red;
+        }
+        &_icon{
+          font-size: 60px;
+          text-decoration: none;
+          color: red;
+        }
+      }
+      &_name{
+        font-family: 'Grenze Gotisch', cursive;
+        font-size: 70px;
+        letter-spacing: 5px;
+      }
+      &_right{
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 15px;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        letter-spacing: 2px;
+        &_login, &_logout{
+          margin-left: 30px;
+          text-decoration: none;
+          color: black;
+          &:hover{
+            text-shadow: 2px 2px 2px black;
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            -ms-transition: 0.3s;
+            transition: 0.3s;
+          }
+        }
+        &_mypage, &_signup{
+          text-decoration: none;
+          color: black;
+          &:hover{
+            text-shadow: 2px 2px 2px black;
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            -ms-transition: 0.3s;
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+  &_flash{
+    height: 30px;
+    width: 1300px;
+    background-color: rgb(252, 244, 235);
+    position: relative;
+    &_new_group{
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 130px;
+      display: none;
+      &_form{
+        display: flex;
+        justify-content: center;
+        &_text{
+          width: 250px;
+          height: 40px;
+          padding-left: 5px;
+          background-color: black;
+          opacity: 0.7;
+          color: white;
+        }
+        &_submit{
+          height: 40px;
+          width: 40px;
+          background-color: red;
+          text-align: center;
+          font-size: 19px;
+          padding-top: 4px;
+          color: white;
+        }
+        ::placeholder{
+          font-size: 15px;
+          letter-spacing: 2px;
+          color: white;
+        }
+      }
+    }
+  }
+  &_main{
+    display: flex;
+    &_lists{
+      display: flex;
+      width: 1300px;
+      flex-wrap: wrap;
+      padding-left: 100px;
+      background-color: rgb(252, 244, 235);
+      position: relative;
+      a{
+        text-decoration: none;
+      }
+      &_link{
+        position: absolute;
+        display: flex;
+        font-size: 50px;
+        margin-top: 100px;
+        bottom: 0;
+        right: 0;
+      }
+    }
+    &_list{
+      margin: 30px;
+      height: 300px;
+      width: 300px;
+      border-radius: 150px;
+      background-color: red;
+      text-align: center;
+      color: white;
+      font-family: 'Sawarabi Mincho', sans-serif;
+      position: relative;
+      &:hover > .top_main_list_name{
+        text-shadow: 5px 5px 5px black;
+        -webkit-transition: 0.3s;
+	      -moz-transition: 0.3s;
+	      -o-transition: 0.3s;
+	      -ms-transition: 0.3s;
+	      transition: 0.3s;
+      }
+      &_count{
+        padding-top: 50px;
+        font-size: 20px;
+        letter-spacing: 5px;
+        color: white;
+        span{
+          font-size: 20px;
+        }
+      }
+      &_name{
+        font-size: 40px;
+        padding: 25px 0 0 17px;
+        white-space: nowrap;
+        height: 100px;
+        width: 280px;
+        letter-spacing: 2px;
+        font-family: 'Bangers', cursive;
+        color: white;
+      }
+      &_latest{
+        padding-top: 5px;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: white;
+        span{
+          font-size: 15px;
+          letter-spacing: 5px;
+        }
+      }
+      &_delete{
+          color: white;
+          position: absolute;
+          top: 250px;
+          left: 117px;
+          background-color: green;
+          border-radius: 10px;
+          padding: 0 7px;
+          font-size: 17px;
+          opacity: 0.9;
+          letter-spacing: 1px;
+      }
+    }
+    &_right{
+      width: 140px;
+      font-family: 'Sawarabi Mincho', sans-serif;
+      position: relative;
+      &_user{
+        text-align: center;
+        &_icon{
+          height: 100px;
+          width: 100px;
+        }
+        &_title{
+          text-align: center;
+        }
+        &_name{
+          text-align: center;
+        }
+        &_edit{
+          text-align: center;
+          margin-top: 15px;
+          font-size: 15px;
+          &_button{
+            text-decoration: none;
+            color: white;
+            background-color: red;
+            padding: 0 5px;
+            border-radius: 5px;
+          }
+        }
+      }
+      &_link{
+        margin-top: 200px;
+        a{
+          text-decoration: none;
+        }
+        &_google{
+          font-size: 25px;
+          background-color: rgb(209, 208, 208);
+          margin: 5px;
+          padding: 2px;
+          text-align: center;
+          border-radius: 5px;
+          span{
+            font-size: 15px;
+            color: black;
+          }
+        }
+        &_youtube{
+          font-size: 25px;
+          background-color: rgb(252, 193, 193);
+          margin: 5px;
+          padding: 2px;
+          text-align: center;
+          border-radius: 5px;
+          margin-top: 20px;
+          span{
+            font-size: 14px;
+            color: black;
+          }
+        }
+      }
+    }   
+  }
+}
+
+
+.google-icon{
+  color: cornflowerblue;
+  text-decoration: none;
+}
+.youtube-icon{
+  text-decoration: none;
+  color: red;
+}
+
+.fuwafuwa {
+  animation:fuwafuwa 1.5s infinite linear alternate;
+  }
+  @keyframes fuwafuwa {
+  0% {transform:translate(0, 0);}
+  100% {transform:translate(0, -20px);}
+  }
+
+.nouser_icon{
+  font-size: 70px;
+  &_message{
+    font-size: 45px;
+    padding-left: 30px;
+  }
+  &_comment{
+    font-size: 27px;
+    padding-left: 7px;
+  }
+}

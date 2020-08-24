@@ -1,28 +1,40 @@
 .devise  
-  .devise__title
-    Sign up
-  .devise__form
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
+  .devise_title
+    %span
+      Engineer Road
+  
+  .flash
+    = render 'layouts/flash'
+  .devise_form
+    .devise_form_title
+      新規ユーザー登録
+    = form_for(@user, url: user_registration_path) do |f|
+      .user_previews
+        - if @user.persisted? && @user.image.present?
+          = image_tag @user.image.url, class: "user_img"
+      .user_image_box        
+        .user_file_field
+          Photo
+          = f.file_field :image, class:"user_image"
+        .user_remove
+          %span
+            削除
       .field
         = f.label :name
         %br/
-        = f.text_field :name, autofocus: true, maxlength: "8", class: "text"
+        = f.text_field :name, maxlength: "8", class: "text"
       .field
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "text"
+        = f.email_field :email, autocomplete: "email", class: "text"
       .field
-        = f.label :password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
+        = f.label :password（6文字以上）
         %br/
         = f.password_field :password, autocomplete: "new-password", class: "text"
       .field
-        = f.label :password_confirmation
+        = f.label :password_confirmation, :password（確認用）
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "text"
       .actions
-        = f.submit "Sign up", class: "actions__submit"
-      -# = render "devise/shared/links", class: "actions"
+        = f.submit "登録", class: "actions_submit"
+

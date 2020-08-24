@@ -1,0 +1,151 @@
+.user_show
+  .user_show_title
+    .user_show_title_home
+      = link_to groups_path do
+        = fa_icon 'home', class: "user_show_title_home_icon"
+    .user_show_title_name
+      My Page
+.message_main
+  .message_main_search_right
+    .message_main_search_right_user
+      -if current_user.image.present?
+        = image_tag current_user.image.url, class: "top_main_right_user_icon"
+      - else
+        .nouser_icon
+          = fa_icon('user')
+    .message_main_search_right_user_title
+      ユーザー名
+    .message_main_search_right_user_name
+      = current_user.name
+    .top_main_right_user_edit
+      = link_to edit_user_registration_path, class:"top_main_right_user_edit_button" do
+        edit
+        =fa_icon 'edit'
+
+  .message_main_lists
+    .message_main_lists_title
+      .message_main_lists_title_my
+        自分の過去の投稿
+      .message_main_lists_title_favo
+        お気に入りの投稿
+    - @messages.each do |message|
+      .message_main_list
+        .message_main_list_title
+          .message_main_list_title_icon
+            = image_tag message.user.image.url, class: "message_main_list_title_icon"
+
+          .message_main_list_title_time
+            = message.created_at.to_s(:yeardate)
+            %br/
+            投稿
+
+          .message_main_list_title_name
+            = message.title
+
+          .message_main_list_title_edit
+            - if message.user_id == current_user.id
+              = link_to edit_group_message_path(message.group_id,message.id), class: "message_main_list_title_edit_icon" do
+                = fa_icon 'edit'
+
+        -if message.image.present?    
+          .message_main_list_img    
+            = image_tag message.image.url, class: 'message_main_list_img' if message.image.present?
+
+        .message_main_list_content
+          = message.content
+        
+        .message_main_list_contact
+          .message_main_list_contact_favorite
+            - if user_signed_in? && message.favorites.find_by(user_id: current_user.id)
+              = link_to group_message_favorite_path(message.id, message.id, id: [message_id: message.id, user_id: current_user.id]), method: :delete, class: "message_main_list_contact_favorite_destroy" do
+                = fa_icon 'heart', class: "message_main_list_contact_favorite_destroy"
+                %span
+                  = message.favorites.count
+            - else
+              = link_to group_message_favorites_path(message.group_id, message.id), class: "message_main_list_contact_favorite_create", method: :post do
+                = fa_icon 'heart-o', class: "message_main_list_contact_favorite_create_icon"
+                %span
+                  = message.favorites.count
+          .message_main_list_contact_comment
+            = fa_icon 'comment'
+            %span
+              = message.comments.count
+        
+        .message_main_list_comment
+          -if message.comments.present?
+            .message_main_list_comment_area{data: {index: message.id}}
+              - message.comments.each do |comment|
+                .message_main_list_comment_area_content
+                  .message_main_list_comment_area_content_img
+                    = image_tag comment.user.image.url, class: "message_main_list_comment_area_content_img"
+                  .message_main_list_comment_area_content_name
+                    = comment.user.name
+                  .message_main_list_comment_area_content_comment
+                    = comment.comment
+
+          .message_main_list_comment_form
+
+    - @favo_messages.each do |favo|
+      .message_main_list_favo
+        .message_main_list_favo_title
+          .message_main_list_favo_title_icon
+            - if favo.message.user.image.present?
+              = image_tag favo.message.user.image.url, class: "message_main_list_title_icon"
+            - else
+              .nouser_icon_message
+                = fa_icon 'user'
+
+          .message_main_list_favo_title_time
+            = favo.message.created_at.to_s(:yeardate)
+            %br/
+            投稿
+
+          .message_main_list_favo_title_name
+            = favo.message.title
+
+          .message_main_list_favo_title_edit
+            - if favo.message.user_id == current_user.id
+              = link_to edit_group_message_path(favo.message.group_id,favo.message.id), class: "message_main_list_title_edit_icon" do
+                = fa_icon 'edit'
+
+        -if favo.message.image.present?    
+          .message_main_list_favo_img    
+            = image_tag favo.message.image.url, class: 'message_main_list_img' if favo.message.image.present?
+
+        .message_main_list_favo_content
+          = favo.message.content
+        
+        .message_main_list_favo_contact
+          .message_main_list_favo_contact_favorite
+            - if user_signed_in? && favo.message.favorites.find_by(user_id: current_user.id)
+              = link_to group_message_favorite_path(favo.message.id, favo.message.id, id: [message_id: favo.message.id, user_id: current_user.id]), method: :delete, class: "message_main_list_contact_favorite_destroy" do
+                = fa_icon 'heart', class: "message_main_list_contact_favorite_destroy"
+                %span
+                  = favo.message.favorites.count
+            - else
+              = link_to group_message_favorites_path(favo.message.group_id, favo.message.id), class: "message_main_list_contact_favorite_create", method: :post do
+                = fa_icon 'heart-o', class: "message_main_list_contact_favorite_create_icon"
+                %span
+                  = favo.message.favorites.count
+          .message_main_list_favo_contact_comment
+            = fa_icon 'comment'
+            %span
+              = favo.message.comments.count
+        
+        .message_main_list_favo_comment
+          -if favo.message.comments.present?
+            .message_main_list_favo_comment_area{data: {index: favo.message.id}}
+              - favo.message.comments.each do |comment|
+                .message_main_list_favo_comment_area_content
+                  .message_main_list_favo_comment_area_content_img
+                    - if comment.user.image.present?
+                      = image_tag comment.user.image.url, class: "message_main_list_comment_area_content_img"
+                    - else
+                    .nouser_icon_comment
+                      = fa_icon 'user'
+                  .message_main_list_favo_comment_area_content_name
+                    = comment.user.name
+                  .message_main_list_favo_comment_area_content_comment
+                    = comment.comment
+
+          .message_main_list_favo_comment_form

@@ -1,88 +1,257 @@
-.message__header{
+.message_header{
   height: 100px;
-  display: flex;
-  justify-content: space-around;
-  .message__header__logo{
-    color: white;
+  border-bottom: 1px solid rgb(218, 218, 217);
+  .message_header_title{
+    display: flex;
+    justify-content: space-around;
     font-size: 90px;
     font-family: 'Bangers', cursive;
-    border-bottom: solid 1px white;
-    padding-top: 10px;
-    height: 100%;
-    letter-spacing: 25px;
-  }
-  &__right{
-    &__home{
-      margin-top: 5px;
-      margin-right: 20px;
-      font-size: 60px;
-      text-decoration: none;
-      &__icon{
-        color: white;
-        &:hover{
-          color: red;
-        }
-        &:after{
-          font-size: 15px;
-          color: white;
-          content: "HOME";
-          font-family: 'Sawarabi Mincho', sans-serif;
-        }
-      }
-    }
-    &__new{
-      text-decoration: none;
-      color: white;
+    margin: 20px 0;
+    &_home{
       font-size: 80px;
-      padding: 15px 20px 0 0;
+      text-decoration: none;
+      position: relative;
+      a{
+        text-decoration: none;
+        color: red;
+      }
+      &:hover{
+        text-shadow: 3px 3px 3px black;
+        -webkit-transition: 0.3s;
+	      -moz-transition: 0.3s;
+	      -o-transition: 0.3s;
+	      -ms-transition: 0.3s;
+	      transition: 0.3s;
+      }  
+    }
+    &_name{
+      letter-spacing: 25px;
+    }
+    &_new{
+      font-size: 70px;
+      margin-top: 10px;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      span{
+        font-size: 15px;
+        font-family: 'Sawarabi Mincho', sans-serif;
+      }
+      &:hover{
+        text-shadow: 3px 3px 3px #979595;
+        -webkit-transition: 0.3s;
+	      -moz-transition: 0.3s;
+	      -o-transition: 0.3s;
+	      -ms-transition: 0.3s;
+	      transition: 0.3s;
+      }  
     }
   }
 }
-.main{
-  height: calc(100vh - 105px);
-  &__messages{
-    height: 90%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    overflow: scroll;
-    font-family: 'Sawarabi Mincho', sans-serif;
 
-    &__list{
-      margin-top: 20px;
-      font-size: 30px;
-      color: white;
-      width: 70%;
-      background-color:  rgba($color: #888888, $alpha: 0.55);
-      border-radius: 25px;
-      &__title{
-        font-size: 30px;
-        color: white;
-        padding: 3px 0 0 10px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        position: relative;
-        &:hover a{
-          color: black;
-        }
-        &__option{
-          font-size: 12px;
-          letter-spacing: 3px;
-          position: absolute;
-          right: 50px;
-        }
+
+.message_main{
+  &_search{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    &_form{
+      display: flex;
+      justify-content: center;
+      padding: 25px 0;
+      margin-right: 40px;
+      &_text{
+        width: 500px;
+        height: 40px;
+        padding-left: 5px;
+        border: 1px solid #bdb4b4;
+        border-radius: 5px;
       }
-      &__content{
-        font-size: 20px;
-        padding: 0 30px 10px 30px;
-        color:white;
-      }
-      &__img{
+      &_submit{
+        height: 40px;
+        width: 40px;
+        background-color: black;
         text-align: center;
         padding-top: 5px;
+        &_icon{
+          height: 30px;
+          width: 30px;
+          color: white;
+        }
+      }
+      ::placeholder{
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: #979595;
+      }
+    }
+    &_right{
+      width: 140px;
+      font-family: 'Sawarabi Mincho', sans-serif;
+      position: absolute;
+      right: 60px;
+      padding-top: 10px;
+      &_user{
+        text-align: center;
+        &_icon{
+          height: 100px;
+          width: 100px;
+        }
+        &_title{
+          text-align: center;
+        }
+        &_name{
+          text-align: center;
+        }
+      }
+    }
+  }
+  &_lists{
+  }
+  &_list{
+    width: 900px;
+    margin: 20px auto;
+    background-color: rgb(252, 244, 235);
+    &_title{
+      display: flex;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid rgb(218, 218, 217);
+      font-family: 'Sawarabi Mincho', sans-serif;
+      &_icon{
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        left: 20px;
+        top: 3px;
+        border-radius: 30px;
+      }
+      &_name{
+        font-size: 50px;
+        padding: 10px 0 10px 60px;
+        width: 750px;
+        a{
+          text-decoration: none;
+          color: black;
+        }
+      }
+      &_time{
+        padding-top: 45px;
+        font-size: 7px;
+        position: absolute;
+        left: 33px;
+        top: 20px;
+        text-align: center;
+      }
+      &_edit{
+        a{
+          text-decoration: none;
+          color: black;
+          font-size: 40px;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+        }
+      }
+    }
+    &_img{
+      margin: 15px auto;
+      width: 700px;
+      height: 500px;
+    }
+    &_content{
+      font-family: 'Sawarabi Mincho', sans-serif;
+      padding-top: 30px;
+      width: 700px;
+      margin: auto;
+      font-size: 20px;
+    }
+    &_contact{
+      width: 700px;
+      margin: auto;
+      padding-top: 20px;
+      display: flex;
+      &_favorite{
+        letter-spacing: 5px;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        &_create{
+            text-decoration: none;
+            font-size: 25px;
+            color: black;
+          span{
+            color: black;
+            font-size: 20px;
+          }
+        }
+        &_destroy{
+            text-decoration: none;
+            font-size: 25px;
+            color: red;
+          span{
+            color: black;
+            font-size: 20px;
+          }
+        }
+      }
+      &_comment{
+        font-size: 25px;
+        margin-left: 25px;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        letter-spacing: 5px;
+        span{
+          color: black;
+          font-size: 20px;
+        }
+      }
+    }
+    &_comment{
+      margin-top: 10px;
+      &_area{
+        width: 700px;
+        height: 200px;
+        overflow: scroll;
+        margin: auto;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        &_content{
+          display: flex;
+          margin-top: 5px;
+          &_img{
+            height: 34px;
+            width: 34px;
+            border-radius: 17px;
+          }
+          &_name{
+            font-size: 10px;
+            padding: 20px 0 0 2px;
+            width: 45px;
+          }
+          &_comment{
+            padding: 10px 0 0 20px;
+          }
+        }
+      }
+      &_form{
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        font-size: 24px;
+        ::placeholder{
+          font-size: 22px;
+          color: #979595;
+        }
+        &_text{
+          width: 400px;
+          height: 30px;
+          padding-left: 5px;
+          border: 1px solid #979595;
+          border-radius: 5px;
+        }
+        &_submit{
+          color: black;
+          margin-left: 4px;
+        }
       }
     }
   }
 }
-
