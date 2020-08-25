@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   before_action :move_to_index 
-  
+  def new
+    @group = Group.find(params[:group_id])
+    @message = Message.find_by(id: params[:message_id])
+    @comment = Comment.new
+  end
+
   def create
     @comment = Comment.create(comment_params)
     respond_to do |format|

@@ -136,7 +136,7 @@
       color: white;
       font-family: 'Sawarabi Mincho', sans-serif;
       position: relative;
-      &:hover > .top_main_list_name{
+      &:hover{
         text-shadow: 5px 5px 5px black;
         -webkit-transition: 0.3s;
 	      -moz-transition: 0.3s;
@@ -216,7 +216,8 @@
         }
       }
       &_link{
-        margin-top: 200px;
+        margin-top: 375px;
+        position: fixed;
         a{
           text-decoration: none;
         }

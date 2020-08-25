@@ -12,7 +12,12 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @group = Group.find(params[:group_id])
     @message = Message.new(message_params)
+    unless @message.valid?
+      flash.now[:alert] = "入力に誤りがあります。もう一度入力してください。"
+      render :new and return
+    end
     @message.save
     flash[:notice] = "投稿が完了しました"
     redirect_to group_messages_path(params[:group_id])
@@ -24,10 +29,15 @@ class MessagesController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:group_id])
     @message = Message.find(params[:id])
-    @message.update(message_params)
-    redirect_to group_messages_path(params[:group_id])
-    flash[:notice]= "記事を更新しました"
+    if @message.update(message_params)
+      flash[:notice] = "記事の更新が完了しました！"
+      redirect_to group_messages_path(params[:group_id])
+    else
+      flash.now[:alert] = "入力に誤りがあります。もう一度入力してください。"
+      render :edit and return
+    end
   end
 
   def destroy
@@ -58,4 +68,3 @@ private
     end
   end
 end
-

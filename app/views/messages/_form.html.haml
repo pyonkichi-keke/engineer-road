@@ -1,14 +1,15 @@
 .form_header
   .form_header_title
     .form_header_title_return
-      = link_to  group_messages_path(@group.id) do
+      = link_to :back do
         = fa_icon 'undo'
     .form_header_title_name
       = @group.name
 
+.flash
+  = render 'layouts/flash'
+  
 .form_main
-  .flash
-    = render 'layouts/flash'
   = form_with model: [group, message], local: true do |f|   
     .previews
       - if message.persisted? && message.image.present?

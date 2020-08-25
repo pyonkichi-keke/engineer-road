@@ -203,10 +203,15 @@
           color: black;
           font-size: 20px;
         }
+        &_icon{
+          text-decoration: none;
+          color: black;
+        }
       }
     }
     &_comment{
-      margin-top: 10px;
+      margin: 10px;
+      padding-bottom: 20px;
       &_area{
         width: 700px;
         max-height: 200px;
@@ -235,7 +240,7 @@
       &_form{
         display: flex;
         justify-content: center;
-        padding: 20px 0;
+        padding-top: 20px;
         font-size: 24px;
         ::placeholder{
           font-size: 22px;

@@ -29,11 +29,10 @@ $(document).on('turbolinks:load', ()=> {
   })
     .done(function(data){
       let html = buildHTML(data); 
-      let num = data["message_id"]
-      $(`.message_main_list_comment_area[data-index= "${num}"]`).append(html);
+      $(`.message_main_list_comment_area`).append(html);
       $('.message_main_list_comment_form_text').val('');
       $('#comment_send').prop('disabled', false);
-      $(`.message_main_list_comment_area[data-index= "${num}"]`).animate({scrollTop: $(`.message_main_list_comment_area[data-index= "${num}"]`)[0].scrollHeight });
+      $(`.message_main_list_comment_area`).animate({scrollTop: $(`.message_main_list_comment_area`)[0].scrollHeight });
     })
     .fail(function(){
       alert('コメントを行うにはログインが必要です');

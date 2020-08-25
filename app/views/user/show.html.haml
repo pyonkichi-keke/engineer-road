@@ -67,9 +67,10 @@
                 %span
                   = message.favorites.count
           .message_main_list_contact_comment
-            = fa_icon 'comment'
-            %span
-              = message.comments.count
+            = link_to new_group_message_comment_path(message.group.id, message.id), class:"message_main_list_contact_comment_icon" do
+              = fa_icon 'comment'
+              %span
+                = message.comments.count
         
         .message_main_list_comment
           -if message.comments.present?
@@ -128,9 +129,10 @@
                 %span
                   = favo.message.favorites.count
           .message_main_list_favo_contact_comment
-            = fa_icon 'comment'
-            %span
-              = favo.message.comments.count
+            = link_to new_group_message_comment_path(favo.message.group.id, favo.message.id), class:"message_main_list_contact_comment_icon" do
+              = fa_icon 'comment'
+              %span
+                = favo.message.comments.count
         
         .message_main_list_favo_comment
           -if favo.message.comments.present?

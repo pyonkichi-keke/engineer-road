@@ -71,12 +71,13 @@
             = render partial: "favorite", locals: { message: message }
 
           .message_main_list_contact_comment
-            = fa_icon 'comment'
-            %span
-              = message.comments.count
+            = link_to new_group_message_comment_path(@group.id, message.id), class:"message_main_list_contact_comment_icon" do
+              = fa_icon 'comment'
+              %span
+                = message.comments.count
         
         .message_main_list_comment
-          .message_main_list_comment_area{data: {index: message.id}}
+          .message_main_list_comment_area
             - message.comments.each do |comment|
               .message_main_list_comment_area_content
                 .message_main_list_comment_area_content_img
@@ -89,9 +90,3 @@
                   = comment.user.name
                 .message_main_list_comment_area_content_comment
                   = comment.comment
-          .message_main_list_comment_form{data: {index: message.id}}
-            = form_with model: @comment, url: group_message_comments_path(@group, message.id), method: :post, local: true, id: "new_comment", class:"message_main_list_comment_form" do |f|
-              = f.text_field :comment, placeholder: "コメントする", class: "message_main_list_comment_form_text"
-              %label(for="comment_send")
-                = f.submit id: "comment_send", class: "hidden"
-                = fa_icon 'paper-plane', class: "message_main_list_comment_form_submit"
