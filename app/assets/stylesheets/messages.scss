@@ -209,7 +209,7 @@
       margin-top: 10px;
       &_area{
         width: 700px;
-        height: 200px;
+        max-height: 200px;
         overflow: scroll;
         margin: auto;
         font-family: 'Sawarabi Mincho', sans-serif;
@@ -223,11 +223,12 @@
           }
           &_name{
             font-size: 10px;
-            padding: 20px 0 0 2px;
-            width: 45px;
+            padding: 20px 0 0 3px;
+            width: 55px;
           }
           &_comment{
-            padding: 10px 0 0 20px;
+            padding: 10px 0 0 30px;
+            width: 600px;
           }
         }
       }
@@ -254,4 +255,12 @@
       }
     }
   }
+}
+
+
+.btn{
+  height: 300px;
+  width: 300px;
+  color: black;
+  z-index: 1;
 }

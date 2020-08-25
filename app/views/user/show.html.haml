@@ -141,8 +141,8 @@
                     - if comment.user.image.present?
                       = image_tag comment.user.image.url, class: "message_main_list_comment_area_content_img"
                     - else
-                    .nouser_icon_comment
-                      = fa_icon 'user'
+                      .nouser_icon_comment
+                        = fa_icon 'user'
                   .message_main_list_favo_comment_area_content_name
                     = comment.user.name
                   .message_main_list_favo_comment_area_content_comment

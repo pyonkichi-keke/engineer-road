@@ -89,11 +89,9 @@
                   = comment.user.name
                 .message_main_list_comment_area_content_comment
                   = comment.comment
-          .message_main_list_comment_form
-            = form_with model: @comment, url: group_message_comments_path(@group, message.id, @comment), method: :post, local: true, id: "new_comment", class:"message_main_list_comment_form" do |f|
+          .message_main_list_comment_form{data: {index: message.id}}
+            = form_with model: @comment, url: group_message_comments_path(@group, message.id), method: :post, local: true, id: "new_comment", class:"message_main_list_comment_form" do |f|
               = f.text_field :comment, placeholder: "コメントする", class: "message_main_list_comment_form_text"
               %label(for="comment_send")
                 = f.submit id: "comment_send", class: "hidden"
                 = fa_icon 'paper-plane', class: "message_main_list_comment_form_submit"
-
-    
