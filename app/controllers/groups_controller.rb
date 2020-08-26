@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find_by(params[:id])
+    @group = Group.find(params[:id])
     @group.destroy
     redirect_to root_path
     flash[:notice]= "グループを削除しました!"
