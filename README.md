@@ -57,17 +57,11 @@ Engineer-Road
 
 # DEMO
 # トップ画面
-<br />
 [![Image from Gyazo](https://i.gyazo.com/ceb58172740b648faff47e56844e3c24.gif)](https://gyazo.com/ceb58172740b648faff47e56844e3c24)
-<br />
 # 新規投稿画面
-<br />
 [![Image from Gyazo](https://i.gyazo.com/2ff6a3ff39759c9aa7570a93e91e589b.gif)](https://gyazo.com/2ff6a3ff39759c9aa7570a93e91e589b)
-<br />
 # コメント画面
-<br />
 [![Image from Gyazo](https://i.gyazo.com/a6f782d4a44bd7afd18c5c3b39c1d671.gif)](https://gyazo.com/a6f782d4a44bd7afd18c5c3b39c1d671)
-<br />
 # マイページ画面
 [![Image from Gyazo](https://i.gyazo.com/31ef8e66fe1913ef0d728ed4d231d579.gif)](https://gyazo.com/31ef8e66fe1913ef0d728ed4d231d579)
 
