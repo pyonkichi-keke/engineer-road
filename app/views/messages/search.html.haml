@@ -30,11 +30,9 @@
           - else
             .nouser_icon
               = fa_icon('user')
-        .message_main_search_right_user_title
-          ユーザー名
         .message_main_search_right_user_name
           = current_user.name
-          
+
   .message_main_lists
     - @messages.each do |message|
       .message_main_list
