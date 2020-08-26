@@ -49,7 +49,7 @@ Engineer-Road
 ⑤トップページ右上のマイページをクリックすると、自分の投稿と「いいね」をした投稿を閲覧できる。
 
 # 本番環境
-●GitHub:http://54.248.147.132/
+●GitHub: https://github.com/pyonkichi-keke/engineer-road
 <br />
 ●デプロイ先: http://54.248.147.132/
 <br />
